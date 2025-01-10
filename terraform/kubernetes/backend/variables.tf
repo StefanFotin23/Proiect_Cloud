@@ -23,6 +23,12 @@ variable "db_name" {
   type        = string
 }
 
+variable "db_address" {
+  description = "The name of the database"
+  type        = string
+  default = "backend-database"
+}
+
 variable "db_port" {
   description = "The port for the database"
   type        = number
