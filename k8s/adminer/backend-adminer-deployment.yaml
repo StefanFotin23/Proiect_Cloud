@@ -1,0 +1,24 @@
+# k8s/adminer/backend-adminer-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-adminer
+  namespace: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend-adminer
+  template:
+    metadata:
+      labels:
+        app: backend-adminer
+    spec:
+      containers:
+      - name: backend-adminer
+        image: adminer:latest
+        ports:
+        - containerPort: 8080
+        env:
+        - name: ADMINER_DEFAULT_SERVER
+          value: backend-database

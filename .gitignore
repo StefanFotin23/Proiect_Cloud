@@ -1,0 +1,7 @@
+dockerfile/backend/backend.jar
+dockerfile/auth/auth.jar
+/dockerfile/frontend/.angular
+/dockerfile/frontend/node_modules
+/dockerfile/frontend/database_mockup
+/dockerfile/frontend/src
+/terraform/.terraform

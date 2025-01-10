@@ -1,0 +1,13 @@
+# k8s/databases/backend-database-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-database
+  namespace: backend
+spec:
+  selector:
+    app: backend-database
+  ports:
+    - protocol: TCP
+      port: 3306
+      targetPort: 3306
