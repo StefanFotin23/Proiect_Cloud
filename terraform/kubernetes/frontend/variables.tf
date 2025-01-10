@@ -12,3 +12,8 @@ variable "replicas" {
   description = "Number of service replicas"
   type = number
 }
+
+variable "auth_address" {
+  description = "Docker repository name for the frontend image"
+  type        = string
+}
