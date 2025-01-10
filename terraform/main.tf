@@ -28,7 +28,7 @@ module "auth" {
   docker_repo     = var.docker_repo
   replicas = var.global_replicas
   server_port = 8080
-  db_name  = "auth-database"
+  db_name  = "backend-database"
   db_username = var.db_username
   db_password = var.db_password
   db_root_password = var.db_root_password
