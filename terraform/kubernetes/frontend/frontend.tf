@@ -80,6 +80,6 @@ resource "kubernetes_service" "frontend_service" {
       target_port = 80
     }
 
-    type = "LoadBalancer"  # Change this to ClusterIP, NodePort, or LoadBalancer as needed
+    type = "NodePort"  # Change this to ClusterIP, NodePort, or LoadBalancer as needed
   }
 }

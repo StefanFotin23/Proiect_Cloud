@@ -1,6 +1,6 @@
-resource "kubernetes_namespace" "adminer" {
+resource "kubernetes_namespace" "backend-adminer" {
   metadata {
-    name = "adminer-${var.database_name}"  # Create a unique namespace for each Adminer instance
+    name = "${var.database_name}-adminer"  # Create a unique namespace for each Adminer instance
   }
 
   lifecycle {
@@ -8,10 +8,10 @@ resource "kubernetes_namespace" "adminer" {
   }
 }
 
-resource "kubernetes_deployment" "adminer" {
+resource "kubernetes_deployment" "backend-adminer" {
   metadata {
-    name      = "adminer-${var.database_name}"
-    namespace = kubernetes_namespace.adminer.metadata[0].name
+    name      = "${var.database_name}-adminer"
+    namespace = kubernetes_namespace.backend-adminer.metadata[0].name
   }
 
   spec {
@@ -19,14 +19,14 @@ resource "kubernetes_deployment" "adminer" {
 
     selector {
       match_labels = {
-        app = "adminer-${var.database_name}"
+        app = "${var.database_name}-adminer"
       }
     }
 
     template {
       metadata {
         labels = {
-          app = "adminer-${var.database_name}"
+          app = "${var.database_name}-adminer"
         }
       }
 
@@ -46,7 +46,7 @@ resource "kubernetes_deployment" "adminer" {
         }
 
         container {
-          name  = "adminer-${var.database_name}"
+          name  = "${var.database_name}-adminer"
           image = "adminer"
 
           env {
@@ -63,20 +63,22 @@ resource "kubernetes_deployment" "adminer" {
   }
 }
 
-resource "kubernetes_service" "adminer_service" {
+resource "kubernetes_service" "backend_adminer_service" {
   metadata {
-    name      = "adminer-${var.database_name}"
-    namespace = kubernetes_namespace.adminer.metadata[0].name
+    name      = "${var.database_name}-adminer"
+    namespace = kubernetes_namespace.backend-adminer.metadata[0].name
   }
 
   spec {
     selector = {
-      app = "adminer-${var.database_name}"
+      app = "${var.database_name}-adminer"
     }
 
     port {
       port        = var.adminer_port      # Expose the dynamic port to the outside
       target_port = 8080                  # Map to the container's 8080 port
     }
+
+    type = "NodePort"
   }
 }

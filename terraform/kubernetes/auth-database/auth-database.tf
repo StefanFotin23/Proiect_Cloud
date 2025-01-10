@@ -1,6 +1,6 @@
-resource "kubernetes_namespace" "database" {
+resource "kubernetes_namespace" "auth-database" {
   metadata {
-    name = var.db_name
+    name = "auth-database"
   }
 
   lifecycle {
@@ -8,10 +8,10 @@ resource "kubernetes_namespace" "database" {
   }
 }
 
-resource "kubernetes_deployment" "database" {
+resource "kubernetes_deployment" "auth-database" {
   metadata {
-    name      = var.db_name
-    namespace = kubernetes_namespace.database.metadata[0].name
+    name      = "auth-database"
+    namespace = kubernetes_namespace.auth-database.metadata[0].name
   }
 
   spec {
@@ -19,14 +19,14 @@ resource "kubernetes_deployment" "database" {
 
     selector {
       match_labels = {
-        app = var.db_name
+        app = "auth-database"
       }
     }
 
     template {
       metadata {
         labels = {
-          app = var.db_name
+          app = "auth-database"
         }
       }
 
@@ -46,7 +46,7 @@ resource "kubernetes_deployment" "database" {
         }
 
         container {
-          name  = "${var.db_name}"
+          name  = "auth-database"
           image = "${var.docker_username}/${var.docker_repo}-database"
 
           env {
@@ -74,20 +74,22 @@ resource "kubernetes_deployment" "database" {
   }
 }
 
-resource "kubernetes_service" "database_service" {
+resource "kubernetes_service" "auth_database_service" {
   metadata {
-    name      = var.db_name
-    namespace = kubernetes_namespace.database.metadata[0].name
+    name      = "auth-database"
+    namespace = kubernetes_namespace.auth-database.metadata[0].name
   }
 
   spec {
     selector = {
-      app = var.db_name
+      app = "auth-database"
     }
 
     port {
       port        = 3306
       target_port = 3306
     }
+
+    type = "ClusterIP"
   }
 }

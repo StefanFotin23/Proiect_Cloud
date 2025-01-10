@@ -53,10 +53,10 @@ module "backend" {
   jwt_secret = var.jwt_secret
 }
 
-module "auth_database" {
-  source = "./kubernetes/databases"
+module "auth-database" {
+  source = "./kubernetes/auth-database"
 
-  db_name  = "auth-database"
+  db_name  = var.db_name
   db_username = var.db_username
   db_password = var.db_password
   db_root_password = var.db_root_password
@@ -66,10 +66,10 @@ module "auth_database" {
   replicas = var.global_replicas
 }
 
-module "backend_database" {
-  source = "./kubernetes/databases"
+module "backend-database" {
+  source = "./kubernetes/backend-database"
 
-  db_name = "backend-database"
+  db_name  = var.db_name
   db_username = var.db_username
   db_password = var.db_password
   db_root_password = var.db_root_password
@@ -79,16 +79,16 @@ module "backend_database" {
   replicas = var.global_replicas
 }
 
-module "auth_adminer" {
-  source = "./kubernetes/adminer"
+module "auth-adminer" {
+  source = "./kubernetes/auth-adminer"
 
   database_name   = "auth-database"
   adminer_port    = 8088
   replicas = var.global_replicas
 }
 
-module "backend_adminer" {
-  source = "./kubernetes/adminer"
+module "backend-adminer" {
+  source = "./kubernetes/backend-adminer"
 
   database_name   = "backend-database"
   adminer_port    = 8087
