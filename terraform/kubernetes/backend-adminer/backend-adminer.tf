@@ -79,6 +79,6 @@ resource "kubernetes_service" "backend_adminer_service" {
       target_port = 8080                  # Map to the container's 8080 port
     }
 
-    type = "NodePort"
+    type = "ClusterIP"
   }
 }
