@@ -17,3 +17,9 @@ echo "Port-forward for auth-database-adminer started in the background."
 
 kubectl port-forward svc/backend-database-adminer 8087:8087 -n backend-database-adminer > backend-database-adminer-port-forward.log 2>&1 &
 echo "Port-forward for backend-database-adminer started in the background."
+
+kubectl port-forward svc/auth 8080:8080 -n auth-service > auth-service-port-forward.log 2>&1 &
+echo "Port-forward for auth-service started in the background."
+
+kubectl port-forward svc/backend 8082:8082 -n backend-service > backend-service-port-forward.log 2>&1 &
+echo "Port-forward for backend-service started in the background."

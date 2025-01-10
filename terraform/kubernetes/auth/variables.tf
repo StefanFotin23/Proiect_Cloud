@@ -24,7 +24,7 @@ variable "db_name" {
 }
 
 variable "db_address" {
-  description = "The name of the database"
+  description = "The ip address of the database"
   type        = string
   default = "auth-database"
 }
