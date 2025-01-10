@@ -1,0 +1,33 @@
+Usage Instructions
+Prepare the dockerfile Directory:
+
+Each subdirectory under dockerfile (e.g., dockerfile/frontend) should contain:
+A Dockerfile with the build instructions.
+All required files (source code, JARs, configuration files).
+Run the Workflow:
+
+Build Docker Images Locally:
+bash
+Copy code
+make build
+Initialize and Apply Terraform:
+bash
+Copy code
+make terraform-init
+make terraform-apply
+Deploy Kubernetes Resources:
+bash
+Copy code
+make k8s-apply
+Start the Entire Flow:
+bash
+Copy code
+make start
+Stop and Clean Up:
+bash
+Copy code
+make stop
+Verify Deployment:
+
+Use kubectl get pods -n app to check that the pods are running.
+Use kubectl get services -n app to verify service endpoints.

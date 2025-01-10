@@ -1,0 +1,13 @@
+# k8s/adminer/backend-adminer-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-adminer
+  namespace: backend
+spec:
+  selector:
+    app: backend-adminer
+  ports:
+    - protocol: TCP
+      port: 8087
+      targetPort: 8080

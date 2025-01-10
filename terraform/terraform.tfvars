@@ -1,0 +1,10 @@
+jwt_secret         = "Mt%wod6vvm5FWUGESNm8g!osR@7B!ZRMy"
+db_username        = "root"
+db_password        = "root"
+db_root_password   = "root"
+db_name            = "hrconnect"
+db_port            = 3306
+jwt_expiration     = 600000000
+docker_username    = "stefanfotin23"
+docker_repo        = "cloud"
+global_replicas = 1

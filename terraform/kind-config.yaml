@@ -1,0 +1,13 @@
+# kind-config.yaml
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+nodes:
+  - role: control-plane  # Master node
+    labels:
+      role: "master"
+  - role: worker        # Worker node 1
+    labels:
+      role: "client"
+  - role: worker        # Worker node 2
+    labels:
+      role: "server"
