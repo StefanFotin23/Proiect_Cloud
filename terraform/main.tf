@@ -28,7 +28,8 @@ module "auth" {
   docker_repo     = var.docker_repo
   replicas = var.global_replicas
   server_port = 8080
-  db_name  = "backend-database"
+  db_address = "10.96.156.53"
+  db_name  = var.db_name
   db_username = var.db_username
   db_password = var.db_password
   db_root_password = var.db_root_password
@@ -44,7 +45,8 @@ module "backend" {
   docker_repo     = var.docker_repo
   replicas = var.global_replicas
   server_port = 8082
-  db_name  = "backend-database"
+  db_address = "10.96.84.251"
+  db_name  = var.db_name
   db_username = var.db_username
   db_password = var.db_password
   db_root_password = var.db_root_password
