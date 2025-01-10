@@ -65,7 +65,7 @@ resource "kubernetes_deployment" "backend" {
 
           env {
             name  = "DB_URL"
-            value = "jdbc:mysql://backend-database:${var.db_port}/${var.db_name}"
+            value = "jdbc:mysql://backend_database:${var.db_port}/${var.db_name}"
           }
 
           env {
@@ -108,5 +108,7 @@ resource "kubernetes_service" "backend_service" {
       port        = var.server_port
       target_port = var.server_port
     }
+
+    type = "ClusterIP"
   }
 }
