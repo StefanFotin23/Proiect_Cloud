@@ -19,6 +19,8 @@ module "frontend" {
   docker_username = var.docker_username
   docker_repo     = var.docker_repo
   replicas = var.global_replicas
+  auth_address = "auth-service.auth"
+  backend_address = "backend-service.backend"
 }
 
 module "auth" {
@@ -28,7 +30,8 @@ module "auth" {
   docker_repo     = var.docker_repo
   replicas = var.global_replicas
   server_port = 8080
-  db_address = "10.96.156.53"
+  db_service_name = "auth-database"
+  db_namespace = "auth-database"
   db_name  = var.db_name
   db_username = var.db_username
   db_password = var.db_password
@@ -45,7 +48,8 @@ module "backend" {
   docker_repo     = var.docker_repo
   replicas = var.global_replicas
   server_port = 8082
-  db_address = "10.96.84.251"
+  db_service_name = "backend-database"
+  db_namespace = "backend-database"
   db_name  = var.db_name
   db_username = var.db_username
   db_password = var.db_password
@@ -84,7 +88,9 @@ module "backend-database" {
 module "auth-adminer" {
   source = "./kubernetes/auth-adminer"
 
-  database_name   = "auth-database"
+  database_name = "auth-database"
+  db_service_name = "auth-database"
+  db_namespace = "auth-database"
   adminer_port    = 8088
   replicas = var.global_replicas
 }
@@ -92,7 +98,9 @@ module "auth-adminer" {
 module "backend-adminer" {
   source = "./kubernetes/backend-adminer"
 
-  database_name   = "backend-database"
+  database_name = "backend-database"
+  db_service_name = "backend-database"
+  db_namespace = "backend-database"
   adminer_port    = 8087
   replicas = var.global_replicas
 }

@@ -54,6 +54,7 @@ resource "kubernetes_deployment" "frontend" {
         container {
           name  = "frontend"
           image = "${var.docker_username}/${var.docker_repo}-frontend"
+          
           port {
             container_port = 80
           }

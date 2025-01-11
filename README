@@ -7,7 +7,11 @@ run_terraform.sh
 
 
 ADMINER:
-kubectl get services --all-namespaces ==> Se ia adresa CLUSTER-IP a BD si se foloseste ca server address
+
+kubectl get services --all-namespaces
+
+    ==> Se ia adresa CLUSTER-IP a BD si se foloseste ca server address
+
 MYSQL
 User admin
 Password admin
@@ -24,3 +28,4 @@ kubectl get svc backend-database -n backend-database
 GENERAL OVERVIEW
 kubectl get deployments --all-namespaces
 kubectl get services --all-namespaces
+./service_status namespace (ex.: auth, backend etc.)

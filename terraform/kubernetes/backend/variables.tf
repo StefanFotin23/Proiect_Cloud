@@ -23,10 +23,14 @@ variable "db_name" {
   type        = string
 }
 
-variable "db_address" {
-  description = "The ip address of the database"
+variable "db_service_name" {
+  description = "The service name of the database"
   type        = string
-  default = "backend-database"
+}
+
+variable "db_namespace" {
+  description = "The namespace of the database"
+  type        = string
 }
 
 variable "db_port" {

@@ -51,7 +51,7 @@ resource "kubernetes_deployment" "auth-adminer" {
 
           env {
             name  = "ADMINER_DEFAULT_SERVER"
-            value = var.database_name  # Use the database name as the server
+            value = "${var.db_service_name}.${var.db_namespace}.svc.cluster.local"  # Use the database name as the server
           }
 
           port {

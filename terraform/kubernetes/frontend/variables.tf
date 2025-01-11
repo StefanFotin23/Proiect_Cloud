@@ -14,6 +14,11 @@ variable "replicas" {
 }
 
 variable "auth_address" {
-  description = "Docker repository name for the frontend image"
+  description = "Ip Address for the auth service"
+  type        = string
+}
+
+variable "backend_address" {
+  description = "Ip Address for the backend service"
   type        = string
 }
