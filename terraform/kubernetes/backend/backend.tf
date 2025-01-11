@@ -65,7 +65,7 @@ resource "kubernetes_deployment" "backend" {
 
           env {
             name  = "DB_URL"
-            value = "jdbc:mysql://${var.db_address}:${var.db_port}/${var.db_name}"
+            value = "jdbc:mysql://${var.db_service_name}.${var.db_namespace}.svc.cluster.local:${var.db_port}/${var.db_name}"
           }
 
           env {
