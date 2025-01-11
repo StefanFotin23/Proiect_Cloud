@@ -1,3 +1,10 @@
+Prerequisites:
+docker
+k8s
+kind
+terraform
+
+
 ./delete_namespaces.sh
 
 ./restart_cluster.sh
