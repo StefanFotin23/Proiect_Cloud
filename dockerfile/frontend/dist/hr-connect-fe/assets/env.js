@@ -1,6 +1,6 @@
 (function (window) {
-    window.__env = window.__env || {};
-    window.__env.authAddress = "";
-    window.__env.backendAddress = "";
-    window.__env.frontendAddress ="";
-})(this);
+    window.env = window.env || {};
+    window.env.authAddress = "auth-service.auth";
+    window.env.backendAddress = "backend-service.backend";
+    window.env.frontendAddress = "frontend.frontend";
+  })(this);

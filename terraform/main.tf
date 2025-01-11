@@ -13,6 +13,31 @@ provider "kubernetes" {
   config_path = "~/.kube/config" # Path to your kubeconfig file
 }
 
+provider "helm" {
+  kubernetes {
+    config_path = "~/.kube/config"
+  }
+}
+
+resource "helm_release" "portainer" {
+  name       = "portainer"
+  namespace  = "portainer"
+  create_namespace = true
+
+  repository = "https://portainer.github.io/k8s/"
+  chart      = "portainer"
+
+  set {
+    name  = "service.type"
+    value = "NodePort"
+  }
+
+  set {
+    name  = "service.nodePort"
+    value = "31000"
+  }
+}
+
 module "frontend" {
   source = "./kubernetes/frontend"
 
