@@ -16,5 +16,5 @@ echo "Port-forward for auth-service started in the background."
 kubectl port-forward svc/backend-service 8082:8082 -n backend > terraform/backend-service-port-forward.log 2>&1 &
 echo "Port-forward for backend-service started in the background."
 
-kubectl port-forward svc/portainer 31000:31000 -n portainer > terraform/portainer-service-port-forward.log 2>&1 &
+kubectl port-forward svc/portainer 9000:9000 -n portainer > terraform/portainer-service-port-forward.log 2>&1 &
 echo "Port-forward for portainer started in the background."
