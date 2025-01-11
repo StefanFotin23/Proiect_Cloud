@@ -9,17 +9,15 @@ fi
 # Get the replica count from the argument
 REPLICA_COUNT=$1
 
-# Define the namespaces and their corresponding deployments
-namespaces=("auth" "backend" "frontend" "auth-database-adminer" "backend-database-adminer" "auth-database" "backend-database")
-deployments=("auth" "backend" "frontend" "auth-database" "backend-database" "auth-database-adminer" "backend-database-adminer")
+kubectl scale deployment auth --replicas="$REPLICA_COUNT" -n auth
+kubectl scale deployment backend --replicas="$REPLICA_COUNT" -n backend
+kubectl scale deployment frontend --replicas="$REPLICA_COUNT" -n frontend
+kubectl scale deployment auth-database-adminer --replicas="$REPLICA_COUNT" -n auth-database-adminer
+kubectl scale deployment backend-database-adminer --replicas="$REPLICA_COUNT" -n backend-database-adminer
+kubectl scale deployment auth-database --replicas="$REPLICA_COUNT" -n auth-database
+kubectl scale deployment backend-database --replicas="$REPLICA_COUNT" -n backend-database
 
-# Loop through each namespace and scale deployments to the specified replica count
-for namespace in "${namespaces[@]}"; do
-    for deployment in "${deployments[@]}"; do
-        echo "Scaling deployment '$deployment' in namespace '$namespace' to $REPLICA_COUNT replicas..."
-        kubectl scale deployment "$deployment" --replicas="$REPLICA_COUNT" -n "$namespace"
-    done
-done
+sleep 5
 
 kubectl get deployments --all-namespaces
 

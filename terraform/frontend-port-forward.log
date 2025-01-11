@@ -1,6 +1,4 @@
-Unable to listen on port 4200: Listeners failed to create with the following errors: [unable to create listener: Error listen tcHandling connection for 4200
+Forwarding from 127.0.0.1:4200 -> 80
+Forwarding from [::1]:4200 -> 80
 Handling connection for 4200
-E0111 15:45:54.196829   13832 portforward.go:424] "Unhandled Error" err="an error occurred forwarding 4200 -> 80: error forwarding port 80 to pod ffe2ee100fd63f7c6fa6ae138f1321b0ebf2239e0b3314e303569f408dbac889, uid : failed to find sandbox \"ffe2ee100fd63f7c6fa6ae138f1321b0ebf2239e0b3314e303569f408dbac889\" in store: not found"
-E0111 15:45:54.194962   13832 portforward.go:424] "Unhandled Error" err="an error occurred forwarding 4200 -> 80: error forwarding port 80 to pod ffe2ee100fd63f7c6fa6ae138f1321b0ebf2239e0b3314e303569f408dbac889, uid : failed to find sandbox \"ffe2ee100fd63f7c6fa6ae138f1321b0ebf2239e0b3314e303569f408dbac889\" in store: not found"
-error: lost connection to pod
-E0111 15:45:54.232676   13832 portforward.go:404] "Unhandled Error" err="error copying from local connection to remote stream: EOF"
+Handling connection for 4200

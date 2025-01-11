@@ -1,1 +1,2 @@
-Error from server (NotFound): namespaces "backend-service" not found
+Forwarding from [::1]:8082 -> 8082
+Handling connection for 8082
