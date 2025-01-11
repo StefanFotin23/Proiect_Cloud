@@ -16,6 +16,7 @@ kubectl scale deployment auth-database-adminer --replicas="$REPLICA_COUNT" -n au
 kubectl scale deployment backend-database-adminer --replicas="$REPLICA_COUNT" -n backend-database-adminer
 kubectl scale deployment auth-database --replicas="$REPLICA_COUNT" -n auth-database
 kubectl scale deployment backend-database --replicas="$REPLICA_COUNT" -n backend-database
+kubectl scale deployment portainer --replicas="$REPLICA_COUNT" -n portainer
 
 sleep 5
 
