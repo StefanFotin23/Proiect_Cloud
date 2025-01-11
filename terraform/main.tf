@@ -29,12 +29,17 @@ resource "helm_release" "portainer" {
 
   set {
     name  = "service.type"
-    value = "NodePort"
+    value = "ClusterIP"
   }
 
   set {
-    name  = "service.nodePort"
-    value = "31000"
+    name  = "admin.password"
+    value = "admin"
+  }
+
+  set {
+    name  = "admin.username"
+    value = "admin"
   }
 }
 

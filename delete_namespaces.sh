@@ -9,6 +9,7 @@ NAMESPACES=(
   "backend-database"
   "backend"
   "frontend"
+  "portainer"
 )
 
 # Delete each namespace
