@@ -49,8 +49,6 @@ module "frontend" {
   docker_username = var.docker_username
   docker_repo     = var.docker_repo
   replicas = var.global_replicas
-  auth_address = "auth-service.auth"
-  backend_address = "backend-service.backend"
 }
 
 module "auth" {
