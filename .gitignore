@@ -5,3 +5,4 @@ dockerfile/auth/auth.jar
 /dockerfile/frontend/database_mockup
 /dockerfile/frontend/src
 /terraform/.terraform
+/terraform/port_forward
