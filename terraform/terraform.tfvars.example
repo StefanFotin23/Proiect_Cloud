@@ -1,0 +1,10 @@
+jwt_secret         = "CHANGE_ME"
+db_username        = "admin"
+db_password        = "CHANGE_ME"
+db_root_password   = "CHANGE_ME"
+db_name            = "hrconnect"
+db_port            = 3306
+jwt_expiration     = 600000000
+docker_username    = "stefanfotin23"
+docker_repo        = "cloud"
+global_replicas = 1

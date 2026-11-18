@@ -6,3 +6,9 @@ dockerfile/auth/auth.jar
 /dockerfile/frontend/src
 /terraform/.terraform
 /terraform/port_forward
+.env
+*.tfstate
+*.tfstate.*
+terraform.tfvars
+.terraform/
+.terraform.tfstate.lock.info
